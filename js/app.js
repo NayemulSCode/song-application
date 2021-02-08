@@ -1,5 +1,7 @@
 const getSong =() =>{
     const searchSong = document.getElementById('searchBtn').value;
     const url = ` https://api.lyrics.ovh/suggest/${searchSong}`
-    console.log(url);
+    fetch(url)
+    .then(res => res.json())
+    .then(data => console.log(data));
 }
