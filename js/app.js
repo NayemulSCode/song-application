@@ -8,6 +8,7 @@ const getSong =() =>{
 
 const displaySongs = songs =>{
     const songContainer = document.getElementById('songContainer');
+    songContainer.innerHTML = '';
     songs.forEach(song => {
         console.log(song);
         const songDiv = document.createElement('div');
