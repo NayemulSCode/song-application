@@ -1,9 +1,12 @@
 const getSong = async() =>{
     const searchSong = document.getElementById('searchBtn').value;
     const url = ` https://api.lyrics.ovh/suggest/${searchSong}`
+    toggleSpinner();
     const res = await fetch(url);
     const data = await res.json();
     displaySongs(data.data);
+    toggleSpinner();
+
 }
 
 const displaySongs = songs =>{
@@ -39,4 +42,16 @@ const getLyrics = async(artist, title) =>{
 const displayLyrics =  lyrics =>{
     const lyricsDiv = document.getElementById('getlyrics');
     lyricsDiv.innerText =lyrics;
+}
+///error message
+// const displayError = error =>{
+//     const errorTag = document.getElementById('errorMessage');
+//     errorTag.innerText = error;
+// };
+
+const toggleSpinner = () =>{
+    const toggleSnip = document.getElementById('loadingSong');
+    const toggleSong = document.getElementById('songContainer');
+    toggleSnip.classList.toggle('d-none')
+    toggleSong.classList.toggle('d-none')
 }
