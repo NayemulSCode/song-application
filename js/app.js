@@ -49,8 +49,9 @@ const displayLyrics =  lyrics =>{
 // const displayError = error =>{
 //     const errorTag = document.getElementById('errorMessage');
 //     errorTag.innerText = error;
-// };
+//};
 
+// loading snipper
 const toggleSpinner = () =>{
     const toggleSnip = document.getElementById('loadingSong');
     const toggleSong = document.getElementById('songContainer');
@@ -59,3 +60,11 @@ const toggleSpinner = () =>{
     toggleSong.classList.toggle('d-none');
     toggleLyrics.classList.toggle('d-none');
 }
+//key enter
+document.getElementById('searchBtn')
+.addEventListener('keypress', function(event){
+    console.log(event.key);
+    if(event.key == 'Enter'){
+        document.getElementById('searchbtn2').click();
+    }
+})
