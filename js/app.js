@@ -35,9 +35,11 @@ const displaySongs = songs =>{
 
 const getLyrics = async(artist, title) =>{
     const url =`https://api.lyrics.ovh/v1/${artist}/${title}`;
+    toggleSpinner()
     const res = await fetch(url);
     const data = await res.json();
     displayLyrics(data.lyrics);
+    toggleSpinner()
 }
 const displayLyrics =  lyrics =>{
     const lyricsDiv = document.getElementById('getlyrics');
@@ -52,6 +54,8 @@ const displayLyrics =  lyrics =>{
 const toggleSpinner = () =>{
     const toggleSnip = document.getElementById('loadingSong');
     const toggleSong = document.getElementById('songContainer');
-    toggleSnip.classList.toggle('d-none')
-    toggleSong.classList.toggle('d-none')
+    const toggleLyrics = document.getElementById('getlyrics');
+    toggleSnip.classList.toggle('d-none');
+    toggleSong.classList.toggle('d-none');
+    toggleLyrics.classList.toggle('d-none');
 }
